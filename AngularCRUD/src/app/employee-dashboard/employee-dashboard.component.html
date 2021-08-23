@@ -1,0 +1,74 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1 style=color:azure> Employee Details</h1>
+    <div class="d-flex">
+      <button (click)="clickAddEmployee()" type="button" class="btn btn-success" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">Add Employee</button>
+    </div>
+  </div>
+
+
+</nav>
+
+
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col"> Employee ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col"> Password</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of employeeData">
+      <td>{{row.user_id}}</td>
+      <td>{{row.user_name}}</td>
+      <td>{{row.user_email}}</td>
+      <td>{{row.user_password}}</td>
+      <td>
+        <button (click)="onEdit(row)" class="btn btn-info btn-sm" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Edit</button>
+        <button (click)="deleteEmployee(row.user_id)" class="btn btn-danger btn-sm">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Employee details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValues">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email</label>
+            <input type="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Passowrd</label>
+            <input type="text" formControlName="password" class="form-control" id="exampleInputPassword1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button>
+        <button type="button" *ngIf="showUpdate" (click)="updateEmployeeDetails()"
+          class="btn btn-primary">update</button>
+      </div>
+    </div>
+  </div>
+</div>

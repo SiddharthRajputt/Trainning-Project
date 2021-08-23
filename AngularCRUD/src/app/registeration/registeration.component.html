@@ -1,0 +1,23 @@
+<div class="register-wrapper">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="empform" (ngSubmit)="onSubmit()">
+                <h1 style="text-align: center;" >REGISTER</h1>
+                <div class="mb-6" >
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" formControlName="name" id="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" formControlName="password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

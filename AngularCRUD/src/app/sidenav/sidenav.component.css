@@ -1,0 +1,16 @@
+/* The side navigation menu */
+.nav-item {
+    margin: 0;
+    padding: 0;
+    width: 225px;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Links on mouse-over */
+  .nav-item a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  
